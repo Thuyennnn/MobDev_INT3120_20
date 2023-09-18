@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+
+    <TextView
+        android:id="@+id/contextMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#66ea90"
+        android:padding="10dp"
+        android:text="Context Menu"
+
+        app:layout_constraintBottom_toTopOf="@+id/textContent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/showPopupMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show popup Menu"
+        app:layout_constraintBottom_toTopOf="@+id/textContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contextMenu" />
+
+    <Button
+        android:id="@+id/popupMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Popup menu"
+        app:layout_constraintBottom_toTopOf="@+id/contextMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
