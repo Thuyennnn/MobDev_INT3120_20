@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     EditText editTextFullName;
     Button buttonSendMessage;
     TextView textFeedback;
+
+    Button moveOnImpicitIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendMessage();
+            }
+        });
+
+        moveOnImpicitIntent = findViewById(R.id.moveOnImpicitItent);
+        moveOnImpicitIntent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ImplicitIntentActivity.class);
+                startActivity(intent);
             }
         });
     }
