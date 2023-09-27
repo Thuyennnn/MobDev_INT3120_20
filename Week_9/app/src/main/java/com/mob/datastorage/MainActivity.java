@@ -99,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.sqliteStorage) {
+            Intent myIntent = new Intent(this, SqliteStorage.class);
+            startActivity(myIntent);
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

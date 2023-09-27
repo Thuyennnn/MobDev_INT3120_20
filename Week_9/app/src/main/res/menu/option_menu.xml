@@ -7,4 +7,7 @@
     <item android:id="@+id/externalStorage"
         android:title="External Storage"
         app:showAsAction="never"/>
+    <item android:id="@+id/sqliteStorage"
+        android:title="Sqlite Storage"
+        app:showAsAction="never"/>
 </menu>
