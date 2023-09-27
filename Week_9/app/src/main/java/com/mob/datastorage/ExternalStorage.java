@@ -3,6 +3,7 @@ package com.mob.datastorage;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,14 +34,11 @@ import java.util.UUID;
 public class ExternalStorage extends AppCompatActivity {
 
     private ActivityExternalStorageBinding binding;
-    private ActivityResultLauncher<String> mTakePhoto;
 
     private boolean isReadPermissionGranted = false;
     private boolean isWritePermissionGranted = false;
     ActivityResultLauncher<String[]> mPermissionResultLauncher;
-    ActivityResultLauncher<Intent> mGetImage;
 
-    Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +58,6 @@ public class ExternalStorage extends AppCompatActivity {
 
             }
         });
-
-
 
         requestPermission();
 
@@ -106,13 +102,18 @@ public class ExternalStorage extends AppCompatActivity {
     }
 
     private void init() {
-        mTakePhoto = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
-            @Override
-            public void onActivityResult(Uri result) {
 
-                binding.imageView.setImageURI(result);
-            }
-        });
+
+        ActivityResultLauncher<PickVisualMediaRequest> pickMedia =
+                registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
+                    // Callback is invoked after the user selects a media item or closes the
+                    // photo picker.
+                    if (uri != null) {
+                        binding.imageView.setImageURI(uri);
+                    } else {
+                        Log.d("PhotoPicker", "No media selected");
+                    }
+                });
 
         binding.selectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +124,9 @@ public class ExternalStorage extends AppCompatActivity {
                         android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                 ) {
 
-                    mTakePhoto.launch("image/*");
+                    pickMedia.launch(new PickVisualMediaRequest.Builder()
+                            .setMediaType(ActivityResultContracts.PickVisualMedia.ImageAndVideo.INSTANCE)
+                            .build());
 
                 } else {
 
