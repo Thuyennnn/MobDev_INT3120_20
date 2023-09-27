@@ -3,6 +3,7 @@ package com.mob.menu;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -16,11 +17,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView;
-    TextView contextMenu;
 
-    Button popupMenuButton;
-    Button showPopupMenuButton;
+
+    private TextView textView;
+    private TextView contextMenu;
+
+    private Button popupMenuButton;
+    private Button showPopupMenuButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,18 +122,20 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.submenu) {
+        if (id == R.id.bai4) {
             textView.setText("option menu:about");
             return true;
         }
 
-        if (id == R.id.subItem1) {
-            textView.setText("option menu:item1");
+        if (id == R.id.bai41) {
+            Intent intent = new Intent(MainActivity.this, Bai4_1.class);
+            MainActivity.this.startActivity(intent);
             return true;
         }
 
-        if (id == R.id.subItem2) {
-            textView.setText("option menu:item2");
+        if (id == R.id.bai42) {
+            Intent intent = new Intent(MainActivity.this, Bai4_2.class);
+            MainActivity.this.startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

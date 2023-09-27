@@ -6,19 +6,19 @@
         android:title="Setting"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/submenu"
-        android:title="Submenu"
+        android:id="@+id/bai4"
+        android:title="Bai 4"
         app:showAsAction="never">
 
         <menu>
 
             <item
-                android:id="@+id/subItem1"
-                android:title="item 1" />
+                android:id="@+id/bai41"
+                android:title="Bai 4_1" />
 
             <item
-                android:id="@+id/subItem2"
-                android:title="item2" />
+                android:id="@+id/bai42"
+                android:title="Bai 4_2" />
 
         </menu>
 
