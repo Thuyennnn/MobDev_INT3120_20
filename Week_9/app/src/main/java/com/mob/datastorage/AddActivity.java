@@ -2,10 +2,15 @@ package com.mob.datastorage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -24,9 +29,9 @@ public class AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FeedReaderDbHelper myDB = new FeedReaderDbHelper(AddActivity.this);
-                myDB.addBook(editTask.getText().toString().trim(),
+                myDB.addTask(editTask.getText().toString().trim(),
                         editNote.getText().toString().trim());
-            }
+                }
         });
     }
 }

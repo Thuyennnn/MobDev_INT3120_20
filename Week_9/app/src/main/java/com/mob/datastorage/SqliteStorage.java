@@ -1,5 +1,6 @@
 package com.mob.datastorage;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,10 +34,11 @@ public class SqliteStorage extends AppCompatActivity {
     ArrayList<String> id, task, note;
     CustomAdapter customAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sqlite_storage);
 
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.add_button);
@@ -53,6 +56,8 @@ public class SqliteStorage extends AppCompatActivity {
         id = new ArrayList<>();
         task = new ArrayList<>();
         note = new ArrayList<>();
+
+        Log.d("test data", id.toString());
 
         storeDataInArrays();
 
@@ -81,6 +86,7 @@ public class SqliteStorage extends AppCompatActivity {
                 task.add(cursor.getString(1));
                 note.add(cursor.getString(2));
             }
+            Log.d("data", id.toString());
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);
         }

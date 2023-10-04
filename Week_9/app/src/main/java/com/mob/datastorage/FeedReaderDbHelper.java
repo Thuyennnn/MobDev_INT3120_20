@@ -41,7 +41,7 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addBook(String task, String note){
+    void addTask(String task, String note){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
