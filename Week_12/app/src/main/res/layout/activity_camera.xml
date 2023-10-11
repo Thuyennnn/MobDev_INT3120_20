@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CameraActivity"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imv_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_take_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="take a photo"/>
+    <VideoView
+        android:id="@+id/vdv_videoView"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"/>
+    <Button
+        android:id="@+id/btn_take_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="take a video"/>
+
+</LinearLayout>
